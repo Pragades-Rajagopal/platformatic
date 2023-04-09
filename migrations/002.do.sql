@@ -1,7 +1,6 @@
-
-CREATE TABLE IF NOT EXISTS employees (
-  id INTEGER PRIMARY KEY AUTOINCREMENT,
-  name TEXT NOT NULL,
-  designation TEXT,
-  experience INTEGER NOT NULL
+CREATE TABLE IF NOT EXISTS employee_details (
+  employee_id INTEGER PRIMARY KEY,
+  age INTEGER NOT NULL,
+  address TEXT,
+  FOREIGN KEY (employee_id) REFERENCES employees (id)
 );

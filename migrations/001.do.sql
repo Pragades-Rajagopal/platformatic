@@ -1,7 +1,6 @@
-
--- Add SQL in this file to create the database tables for your API
-CREATE TABLE IF NOT EXISTS movies (
+CREATE TABLE IF NOT EXISTS employees (
   id INTEGER PRIMARY KEY,
-  title TEXT NOT NULL
+  name TEXT NOT NULL,
+  designation TEXT,
+  experience INTEGER NOT NULL
 );
-
