@@ -20,7 +20,8 @@ module.exports = async function (app) {
         async (request, response) => {
             const employeesCount = await app.platformatic.entities.employee.count();
             return { employeesCount }
-        });
+        }
+    );
 
     app.post(
         "/executives",
@@ -44,6 +45,15 @@ module.exports = async function (app) {
                 input: employee
             });
             return result
+        }
+    );
+
+    app.get(
+        "/all-employee-details",
+        async (request, response) => {
+            // const employees = await app.platformatic.entities.employee.find();
+            // const employeeDetails = await app.platformatic.entities.employeeDetail.find();
+            return { message: "under development" }
         }
     )
 }
