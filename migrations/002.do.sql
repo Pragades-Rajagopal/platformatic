@@ -1,6 +1,8 @@
 CREATE TABLE IF NOT EXISTS employee_details (
-  employee_id INTEGER PRIMARY KEY,
-  age INTEGER NOT NULL,
-  address TEXT,
-  FOREIGN KEY (employee_id) REFERENCES employees (id)
-);
+    id INTEGER PRIMARY KEY,
+    employee_id INTEGER NOT NULL,
+    address TEXT,
+    age INTEGER NOT NULL,
+    rating INTEGER NOT NULL,
+    FOREIGN KEY (employee_id) REFERENCES employees (id)
+)

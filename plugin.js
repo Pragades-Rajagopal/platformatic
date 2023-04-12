@@ -4,22 +4,22 @@
 /** @param {import('fastify').FastifyInstance} app */
 module.exports = async function (app) {
     app.get(
-        "/movies-count",
+        "/employees-count",
         {
             schema: {
                 response: {
                     200: {
                         type: "object",
                         properties: {
-                            moviesCount: { type: "integer" }
+                            employeesCount: { type: "integer" }
                         }
                     }
                 }
             }
         },
         async (request, response) => {
-            const moviesCount = await app.platformatic.entities.employee.count();
-            return { moviesCount }
+            const employeesCount = await app.platformatic.entities.employee.count();
+            return { employeesCount }
         });
 
     app.post(

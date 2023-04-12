@@ -3,8 +3,10 @@
  * A EmployeeDetail
  */
 declare interface EmployeeDetail {
-    employeeId?: number;
-    age: number;
+    id?: number;
+    employeeId: number;
     address?: string | null;
+    age: number;
+    rating: number;
 }
 export { EmployeeDetail };

@@ -1,5 +1,5 @@
 {
-  "$schema": "https://platformatic.dev/schemas/v0.19.2/db",
+  "$schema": "https://platformatic.dev/schemas/v0.19.4/db",
   "server": {
     "hostname": "{PLT_SERVER_HOSTNAME}",
     "port": "{PORT}",
@@ -13,7 +13,7 @@
     "openapi": true
   },
   "migrations": {
-    "dir": "./migrations"
+    "dir": "migrations"
   },
   "plugins": {
     "paths": [
