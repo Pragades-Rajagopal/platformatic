@@ -3,6 +3,7 @@
 
 /** @param {import('fastify').FastifyInstance} app */
 module.exports = async function (app) {
+    app.log.info('Plugin loaded');
     app.get(
         "/employees-count",
         {
@@ -50,10 +51,34 @@ module.exports = async function (app) {
 
     app.get(
         "/all-employee-details",
+        {
+            schema: {
+                response: {
+                    200: {
+                        type: "array",
+                        items: {
+                            type: "object",
+                            properties: {
+                                employee_id: { type: "integer" },
+                                name: { type: "string" },
+                                email: { type: "string" },
+                                designation: { type: "string" },
+                                experience: { type: "integer" },
+                                address: { type: "string" },
+                                age: { type: "integer" },
+                                rating: { type: "integer" },
+                            }
+                        }
+                    }
+                }
+            }
+        },
         async (request, response) => {
-            // const employees = await app.platformatic.entities.employee.find();
-            // const employeeDetails = await app.platformatic.entities.employeeDetail.find();
-            return { message: "under development" }
+            const { db, sql } = app.platformatic;
+            const data = await db.query(sql`
+                SELECT * FROM employees_v ORDER BY employee_id 
+            `);
+            return data;
         }
     )
 }
