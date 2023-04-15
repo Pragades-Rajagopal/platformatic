@@ -2,13 +2,11 @@
   "scripts": {
     "start": "platformatic db start"
   },
-  "devDependencies": {
-    "fastify": "^4.15.0"
-  },
   "dependencies": {
     "@platformatic/sql-graphql": "^0.19.4",
     "@platformatic/sql-mapper": "^0.19.4",
-    "platformatic": "^0.19.4"
+    "platformatic": "^0.19.4",
+    "fastify": "^4.15.0"
   },
   "engines": {
     "node": "^16.17.0 || ^18.8.0 || >=19"
