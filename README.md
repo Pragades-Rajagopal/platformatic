@@ -9,13 +9,20 @@ You'll need to have [Node.js](https://nodejs.org/) >= v16.17.0 or >= v18.8.0
 
 ## Setup 
 
-1. Install dependencies:
+1. DB file creation
+> Note: This will create a SQLite database for your project if you wish to use SQLite. Skip this step if you are using Postgres or MySQL
+
+```bash
+./create-db.sh
+```
+
+2. Install dependencies:
 
 ```bash
 npm install
 ```
 
-2. Apply migrations:
+3. Apply migrations:
 
 ```bash
 npx platformatic db migrations apply
