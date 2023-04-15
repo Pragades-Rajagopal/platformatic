@@ -1,0 +1,80 @@
+{
+    "employeeCountSchema": {
+        "schema": {
+            "response": {
+                "200": {
+                    "type": "object",
+                    "properties": {
+                        "employeesCount": {
+                            "type": "integer"
+                        }
+                    }
+                }
+            }
+        }
+    },
+    "executivesSchema": {
+        "schema": {
+            "body": {
+                "$ref": "Employee"
+            },
+            "response": {
+                "200": {
+                    "$ref": "Employee"
+                }
+            }
+        }
+    },
+    "allEmployeeDetailsSchema": {
+        "schema": {
+            "response": {
+                "200": {
+                    "type": "array",
+                    "items": {
+                        "type": "object",
+                        "properties": {
+                            "employee_id": {
+                                "type": "integer"
+                            },
+                            "name": {
+                                "type": "string"
+                            },
+                            "email": {
+                                "type": "string"
+                            },
+                            "designation": {
+                                "type": "string"
+                            },
+                            "experience": {
+                                "type": "integer"
+                            },
+                            "address": {
+                                "type": "string"
+                            },
+                            "age": {
+                                "type": "integer"
+                            },
+                            "rating": {
+                                "type": "integer"
+                            }
+                        }
+                    }
+                },
+                "500": {
+                    "type": "object",
+                    "properties": {
+                        "statusCode": {
+                            "type": "integer"
+                        },
+                        "error": {
+                            "type": "string"
+                        },
+                        "message": {
+                            "type": "string"
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
