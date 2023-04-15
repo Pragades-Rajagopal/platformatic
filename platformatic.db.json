@@ -1,5 +1,4 @@
 {
-  "$schema": "https://platformatic.dev/schemas/v0.19.4/db",
   "server": {
     "hostname": "{PLT_SERVER_HOSTNAME}",
     "port": "{PORT}",
