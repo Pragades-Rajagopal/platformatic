@@ -15,10 +15,20 @@ module.exports = async function (app) {
         const employee = request.body;
         employee.name = employee.name.toUpperCase();
         employee.designation = employee.designation.toUpperCase();
+        employee.email = employee.name.split(' ').join('.').toLowerCase().concat('@app.com')
         const result = await app.platformatic.entities.employee.save({
             input: employee
         });
         return result
+    }
+
+    const getExecutives = async (request, response) => {
+        const data = await app.platformatic.entities.employee.find();
+        return data.filter(e => {
+            if (e.name == e.name.toUpperCase()) {
+                return e
+            }
+        })
     }
 
     const getAllEmployeeDetails = async (request, response) => {
@@ -47,10 +57,16 @@ module.exports = async function (app) {
     );
 
     app.post(
-        "/executives",
-        swaggerSchema.executivesSchema,
+        "/executive",
+        swaggerSchema.executivesPostSchema,
         postExecutives
     );
+
+    app.get(
+        "/executive",
+        swaggerSchema.executivesGetSchema,
+        getExecutives
+    )
 
     app.get(
         "/all-employee-details",

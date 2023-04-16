@@ -13,7 +13,7 @@
             }
         }
     },
-    "executivesSchema": {
+    "executivesPostSchema": {
         "schema": {
             "body": {
                 "$ref": "Employee"
@@ -21,6 +21,18 @@
             "response": {
                 "200": {
                     "$ref": "Employee"
+                }
+            }
+        }
+    },
+    "executivesGetSchema": {
+        "schema": {
+            "response": {
+                "200": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "Employee"
+                    }
                 }
             }
         }
