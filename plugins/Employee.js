@@ -36,7 +36,7 @@ module.exports = async function (app) {
             const { db, sql } = app.platformatic;
             const data = await db.query(sql`
             SELECT * FROM employees_v ORDER BY employee_id 
-        `);
+            `);
             return data;
         } catch (error) {
             return new Error('Something went wrong!')
