@@ -8,5 +8,7 @@ declare interface Employee {
     designation?: string | null;
     experience: number;
     email: string;
+    createdOn: string;
+    modifiedOn: string;
 }
 export { Employee };

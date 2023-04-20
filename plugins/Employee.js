@@ -1,5 +1,6 @@
 /// <reference path="../global.d.ts" />
 'use strict'
+const moment = require('moment');
 const swaggerSchema = require('../custom.swagger.json');
 /** @param {import('fastify').FastifyInstance} app */
 module.exports = async function (app) {
@@ -13,9 +14,12 @@ module.exports = async function (app) {
 
     const postExecutives = async (request, response) => {
         const employee = request.body;
+        const currentTime = moment().utcOffset("+05:30").format('YYYY-MM-DD HH:mm:ss');
         employee.name = employee.name.toUpperCase();
         employee.designation = employee.designation.toUpperCase();
         employee.email = employee.name.split(' ').join('.').toLowerCase().concat('@app.com')
+        employee.createdOn = currentTime;
+        employee.modifiedOn = currentTime;
         const result = await app.platformatic.entities.employee.save({
             input: employee
         });
@@ -45,7 +49,16 @@ module.exports = async function (app) {
 
     app.platformatic.addEntityHooks('employee', {
         save: async (originalSave, options) => {
+            const currentTime = moment().utcOffset("+05:30").format('YYYY-MM-DD HH:mm:ss');
             options.input.email = options.input.name.split(' ').join('.').toLowerCase().concat('@app.com')
+            options.input.createdOn = currentTime;
+            options.input.modifiedOn = currentTime;
+            return await originalSave(options)
+        },
+
+        update: async (originalSave, options) => {
+            const currentTime = moment().utcOffset("+05:30").format('YYYY-MM-DD HH:mm:ss');
+            options.input.modifiedOn = currentTime;
             return await originalSave(options)
         }
     })
