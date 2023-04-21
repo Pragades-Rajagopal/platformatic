@@ -54,12 +54,6 @@ module.exports = async function (app) {
             options.input.createdOn = currentTime;
             options.input.modifiedOn = currentTime;
             return await originalSave(options)
-        },
-
-        update: async (originalSave, options) => {
-            const currentTime = moment().utcOffset("+05:30").format('YYYY-MM-DD HH:mm:ss');
-            options.input.modifiedOn = currentTime;
-            return await originalSave(options)
         }
     })
 
