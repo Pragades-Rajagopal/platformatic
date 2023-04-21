@@ -1,11 +1,11 @@
 name: Deploy Platformatic application to the cloud
-on:
-  push:
-    branches:
-      - main
-  paths-ignore:
-      - 'docs/**'
-      - '**.md'
+# on:
+#   push:
+#     branches:
+#       - main
+#   paths-ignore:
+#       - 'docs/**'
+#       - '**.md'
 
 jobs:
   build_and_deploy:
