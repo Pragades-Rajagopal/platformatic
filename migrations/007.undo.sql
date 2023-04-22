@@ -1,0 +1,1 @@
+DROP VIEW partners_v;
