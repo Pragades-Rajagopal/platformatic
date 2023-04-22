@@ -2,9 +2,10 @@
 'use strict'
 const moment = require('moment');
 const swaggerSchema = require('../custom.swagger.json');
+
 /** @param {import('fastify').FastifyInstance} app */
 module.exports = async function (app) {
-    app.log.info('Plugin loaded');
+    app.log.info('Employee plugin loaded');
 
     // Methods
     const getEmployeeCount = async (request, response) => {
@@ -39,7 +40,7 @@ module.exports = async function (app) {
         try {
             const { db, sql } = app.platformatic;
             const data = await db.query(sql`
-            SELECT * FROM employees_v ORDER BY employee_id 
+                SELECT * FROM employees_v ORDER BY employee_id 
             `);
             return data;
         } catch (error) {
@@ -57,6 +58,7 @@ module.exports = async function (app) {
         }
     })
 
+    // routes
     app.get(
         "/employees-count",
         swaggerSchema.employeeCountSchema,
