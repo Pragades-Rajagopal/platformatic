@@ -88,5 +88,57 @@
                 }
             }
         }
+    },
+    "allPartnerDetailsSchema": {
+        "schema": {
+            "response": {
+                "200": {
+                    "type": "array",
+                    "items": {
+                        "type": "object",
+                        "properties": {
+                            "partner_id": {
+                                "type": "integer"
+                            },
+                            "name": {
+                                "type": "string"
+                            },
+                            "business_type": {
+                                "type": "string"
+                            },
+                            "address": {
+                                "type": "string"
+                            },
+                            "is_tax_exempt": {
+                                "type": "string"
+                            },
+                            "band": {
+                                "type": "string"
+                            },
+                            "comment": {
+                                "type": "string"
+                            },
+                            "created_on": {
+                                "type": "string"
+                            }
+                        }
+                    }
+                },
+                "500": {
+                    "type": "object",
+                    "properties": {
+                        "statusCode": {
+                            "type": "integer"
+                        },
+                        "error": {
+                            "type": "string"
+                        },
+                        "message": {
+                            "type": "string"
+                        }
+                    }
+                }
+            }
+        }
     }
 }
